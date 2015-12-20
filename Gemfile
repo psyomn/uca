@@ -12,6 +12,10 @@ gem 'thin'
 gem 'devise'
 gem 'cancancan'
 
+group :development do
+  gem 'pry-rails'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -27,6 +31,7 @@ group :assets do
 end
 
 group :test do
+  gem 'test-unit-rails'
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'database_cleaner'

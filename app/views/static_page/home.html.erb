@@ -1,11 +1,7 @@
 <div class="panel-default">
   <div class="panel-heading"> <b> News </b> </div>
   <div class="panel-body">
-    <ul>
-    <% [1,2,3].each do |el| %>
-      <li><a href="#">Link to news item #<%= el %></a></li>
-    <% end %>
-    </ul>
+    <%= render 'common/list_news' %>
   </div>
 </div>
 
@@ -15,12 +11,7 @@
     <div class="panel-default">
       <div class="panel-heading"> <b> Newest Songs </b> </div>
       <div class="panel-body">
-        <li> Song ... </li>
-        <li> Song ... </li>
-        <li> Song ... </li>
-        <li> Song ... </li>
-        <li> Song ... </li>
-        <li> Song ... </li>
+        <%= render 'common/list_songs' %>
       </div>
     </div>
   </div>
@@ -29,11 +20,7 @@
     <div class="panel-default">
       <div class="panel-heading"> <b> Newest Ratings </b> </div>
       <div class="panel-body">
-        <li> Rating ... </li>
-        <li> Rating ... </li>
-        <li> Rating ... </li>
-        <li> Rating ... </li>
-        <li> Rating ... </li>
+        <%= render 'common/list_ratings' %>
       </div>
     </div>
   </div>

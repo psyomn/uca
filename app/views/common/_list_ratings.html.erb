@@ -1,0 +1,9 @@
+<% if @ratings.empty? %>
+  <p> No ratings found. </p>
+<% else %>
+  <ul>
+  <% @ratings.each do |rating| %>
+    <li> <% rating.band.name %> - <% rating.song.name %> - <% rating.score %> </li>
+  <% end %>
+  </ul>
+<% end %>

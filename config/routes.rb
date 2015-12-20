@@ -1,4 +1,6 @@
 Uca::Application.routes.draw do
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -52,6 +54,8 @@ Uca::Application.routes.draw do
 
   get 'home' => 'static_page#home'
   get 'about' => 'static_page#about'
+  get 'login' => 'static_page#login'
+  get 'register' => 'static_page#register'
 
   # See how all your routes lay out with "rake routes"
 

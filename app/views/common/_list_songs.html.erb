@@ -1,0 +1,9 @@
+<% if @songs.empty? %>
+  <p> No songs found. </p>
+<% else %>
+  <ul>
+  <% @songs.each do |song| %>
+    <li> <%= song.band.name %> - <%= song.name %> </li>
+  <% end %>
+  </ul>
+<% end %>

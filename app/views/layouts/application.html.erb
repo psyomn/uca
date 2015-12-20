@@ -14,12 +14,15 @@
   <nav class="navbar navbar-default navbar-static-top">
     <ul class="nav nav-tabs">
       <li><%= link_to "Home", root_path, role: "presentation" %></li>
-      <li role="presentation"><a href="#">About</a></li>
+      <li><%= link_to "About", about_path, role: "presentation" %></li>
     </ul>
   </nav>
 
   <%= yield %>
 
+
+  <div style="margin-top:10px;" class="panel-default">
+    <div class="panel-footer"> User Composition Archive </div>
   </div>
 
 </body>

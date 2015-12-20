@@ -1,0 +1,14 @@
+<h1> <%= @song.name %> </h1>
+
+<p> Band: <%= @song.band.name %> </p>
+
+<div class="panel-default">
+  <div class="panel-heading"> Ratings </div>
+  <div class="panel-body">
+    <ul>
+    <% @song.ratings.each do |rating| %>
+      <li> <%= rating.score %> </li>
+    <% end %>
+    </ul>
+  </div>
+</div>

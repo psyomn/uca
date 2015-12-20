@@ -1,4 +1,9 @@
 Uca::Application.routes.draw do
+
+  get "song/index" => 'song#index'
+  get "song/show/:id" => 'song#show'
+  post "song/destroy" => 'song#destroy'
+
   devise_for :users
 
   # The priority is based upon order of creation:

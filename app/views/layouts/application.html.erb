@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UCA</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="container">
+  <h1> User Composition Archive </h1>
+
+  <nav class="navbar navbar-default navbar-static-top">
+    <ul class="nav nav-tabs">
+      <li><%= link_to "Home", root_path, role: "presentation" %></li>
+      <li role="presentation"><a href="#">About</a></li>
+    </ul>
+  </nav>
+
+  <%= yield %>
+
+  </div>
+
+</body>
+</html>

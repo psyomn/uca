@@ -5,6 +5,10 @@ Uca::Application.routes.draw do
   delete "songs/destroy" => 'songs#destroy'
 
   devise_for :users
+  get 'users/:id' => 'users#show', as: :user
+
+  resources :bands
+  get 'bands/letter/:letter' => 'bands#letter', as: :band_letter
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

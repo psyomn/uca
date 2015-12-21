@@ -1,8 +1,8 @@
-<% if @songs.empty? %>
+<% if songs.empty? %>
   <p> No songs found. </p>
 <% else %>
   <ul>
-  <% @songs.each do |song| %>
+  <% songs.each do |song| %>
     <li> <%= link_to song.full_name, song_path(song) %> </li>
   <% end %>
   </ul>

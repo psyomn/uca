@@ -13,8 +13,9 @@
 
   <nav class="navbar navbar-default navbar-static-top">
     <ul class="nav nav-tabs">
-      <li><%= link_to "Home", root_path, role: "presentation" , class: "navbar-link" %></li>
-      <li><%= link_to "About", about_path, role: "presentation" , class: "navbar-link" %></li>
+      <li><%= link_to "Home", root_path, role: "presentation", class: "navbar-link" %></li>
+      <li><%= link_to "Bands", bands_path, role: "presentation", class: "navbar-link" %> </li>
+      <li><%= link_to "About", about_path, role: "presentation", class: "navbar-link" %></li>
       <p class="navbar-text pull-right">
       <% if user_signed_in? %>
         <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "navbar-link" %> </li>
@@ -27,11 +28,18 @@
     </ul>
   </nav>
 
-  <% if notice %>
-    <p class="notice"><%= notice %></p>
+  <% if n = flash[:notice] %>
+    <div class="panel panel-info">
+      <div class="panel-heading"> Notice </div>
+      <div class="panel-body"><%= n %></div>
+    </div>
   <% end %>
-  <% if alert %>
-    <p class="alert"><%= alert %></p>
+
+  <% if a = flash[:alert] %>
+    <div class="panel panel-danger">
+      <div class="panel-heading"> Alert </div>
+      <div class="panel-body"> <%= a %> </div>
+    </div>
   <% end %>
 
   <%= yield %>

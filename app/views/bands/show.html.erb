@@ -1,0 +1,10 @@
+<h1> <%= @band.name %> </h1>
+
+<p> Current band leader: <%= link_to @band_leader.nickname, user_path(@band_leader) %>
+
+<p> Descriptions of bands will be enabled later...</p>
+
+<h3> Related songs </h3>
+
+<%= render partial: 'common/list_songs', locals: {songs: @band.songs} %>
+

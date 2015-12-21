@@ -1,33 +1,35 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.22'
+gem 'rails', '4.2.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
-gem 'thin'
-
 gem 'devise'
 gem 'cancancan'
 
-group :development do
-  gem 'pry-rails'
+gem 'sass-rails',   '~> 5.0'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'bootstrap-sass', '~> 3.1.1.0'
+gem 'autoprefixer-rails'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', :platforms => :ruby
+gem 'uglifier', '>= 1.3.0'
+gem 'turbolinks'
+gem 'jquery-rails'
+gem 'sdoc'
+
+group :development, :test do
+  gem 'byebug'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass', '~> 3.1.1.0'
-  gem 'autoprefixer-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
+group :development do
+  gem 'pry-rails'
+  gem 'thin'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
 end
 
 group :test do
@@ -36,8 +38,6 @@ group :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

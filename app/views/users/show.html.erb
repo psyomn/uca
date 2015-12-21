@@ -1,0 +1,52 @@
+<% if flash[:errors] %>
+  <%= render partial: 'common/notices' %>
+<% else %>
+
+<div>
+  <h1> <%= @user.nickname %> <small>(<%= @user.real_name %>)</small></h1>
+</div>
+
+<div class="content">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-default">
+        <div class="panel-heading">
+          <strong> Bio </strong>
+        </div>
+        <div class="panel-body">
+          <p> <%= @user.bio %> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-6">
+      <div class="panel-default">
+        <div class="panel-heading">
+          <strong> My latest compositions </strong>
+        </div>
+        <div class="panel-body">
+          <%= render partial: 'common/list_songs', locals: {songs: @user.songs} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="panel-default">
+        <div class="panel-heading">
+          <strong> My latest ratings </strong>
+        </div>
+        <div class="panel-body">
+          <%= render partial: 'common/list_ratings', locals: {ratings: @user.ratings} %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<% end %>

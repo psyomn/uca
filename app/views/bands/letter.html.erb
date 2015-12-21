@@ -1,0 +1,6 @@
+<h1> Bands beginning with '<%= params[:letter] %>' </h1>
+
+<%= render partial: 'common/list_bands', locals: {bands: @bands} %>
+
+<%= render partial: 'letters', locals: {letters: @letters} %>
+

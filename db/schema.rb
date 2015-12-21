@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151220093222) do
+ActiveRecord::Schema.define(:version => 20151220222736) do
 
   create_table "bands", :force => true do |t|
     t.string   "name"
@@ -20,12 +20,17 @@ ActiveRecord::Schema.define(:version => 20151220093222) do
     t.integer  "user_id"
   end
 
+  add_index "bands", ["name"], :name => "index_bands_on_name"
+
   create_table "newsitems", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  add_index "newsitems", ["user_id"], :name => "index_newsitems_on_user_id"
 
   create_table "ratings", :force => true do |t|
     t.integer  "score"
@@ -33,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20151220093222) do
     t.datetime "updated_at", :null => false
     t.integer  "song_id"
     t.integer  "user_id"
+    t.text     "comment"
   end
 
   create_table "songs", :force => true do |t|

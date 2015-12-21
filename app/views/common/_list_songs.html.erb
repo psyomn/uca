@@ -3,7 +3,7 @@
 <% else %>
   <ul>
   <% @songs.each do |song| %>
-    <li> <%= song.band.name %> - <%= song.name %> </li>
+    <li> <%= link_to song.full_name, song_path(song) %> </li>
   <% end %>
   </ul>
 <% end %>

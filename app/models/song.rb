@@ -3,4 +3,8 @@ class Song < ActiveRecord::Base
   belongs_to :user
   belongs_to :band
   attr_accessible :name
+
+  def full_name
+    "#{self.band.name} - #{self.name}"
+  end
 end

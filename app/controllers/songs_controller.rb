@@ -1,7 +1,8 @@
 # General control of songs
 # @author psyomn
-class SongController < ApplicationController
+class SongsController < ApplicationController
   def index
+    @songs = Song.all
   end
 
   def show

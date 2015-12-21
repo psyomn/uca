@@ -1,8 +1,8 @@
 Uca::Application.routes.draw do
 
-  get "song/index" => 'song#index'
-  get "song/show/:id" => 'song#show'
-  post "song/destroy" => 'song#destroy'
+  get "songs/" => 'songs#index'
+  get "songs/:id" => 'songs#show', as: :song
+  delete "songs/destroy" => 'songs#destroy'
 
   devise_for :users
 

@@ -11,7 +11,7 @@
     <div class="panel-default">
       <div class="panel-heading"> <b> Newest Songs </b> </div>
       <div class="panel-body">
-        <%= render 'common/list_songs' %>
+        <%= render partial: 'common/list_songs', locals: {songs: @songs} %>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
     <div class="panel-default">
       <div class="panel-heading"> <b> Newest Ratings </b> </div>
       <div class="panel-body">
-        <%= render 'common/list_ratings' %>
+        <%= render partial: 'common/list_ratings', locals: {ratings: @ratings} %>
       </div>
     </div>
   </div>

@@ -10,6 +10,8 @@ Uca::Application.routes.draw do
   resources :bands
   get 'bands/letter/:letter' => 'bands#letter', as: :band_letter
 
+  resources :newsitems
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

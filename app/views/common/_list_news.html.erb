@@ -1,9 +1,9 @@
-<% if @newsitems.empty? %>
+<% if @newsitems.nil? || @newsitems.empty? %>
   <p> No news items </p>
 <% else %>
   <ul>
   <% @newsitems.each do |item| %>
-    <li> <%= item.title %> - <%= item.created_at %> </li>
+    <li> <%= link_to item.title, newsitem_path(item) %> - <%= item.created_at %> </li>
   <% end %>
   </ul>
 <% end %>

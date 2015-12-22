@@ -3,7 +3,14 @@
 <% else %>
 
 <div>
-  <h1> <%= @user.nickname %> <small>(<%= @user.real_name %>)</small></h1>
+  <% if nick = @user.nickname %>
+    <h1> <%= nick %>
+    <% if rn = @user.real_name %>
+      <small>(<%= rn %>)</small></h1>
+    <% end %>
+  <% else %>
+    <h1> <%= @user.best_name_possible %></h1>
+  <% end %>
 </div>
 
 <div class="content">
@@ -15,7 +22,7 @@
           <strong> Bio </strong>
         </div>
         <div class="panel-body">
-          <p> <%= @user.bio %> </p>
+          <p> <%= bio_or_none @user.bio %> </p>
         </div>
       </div>
     </div>

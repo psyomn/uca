@@ -10,15 +10,30 @@ class BandsController < ApplicationController
   def show
     @band = Band.find(params[:id])
     @band_leader = @band.user
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "No such band exists. Sorry! Try choosing something from the list."
+    redirect_to :bands
   end
 
   def new
+    @band = Band.new
   end
 
   def edit
   end
 
   def create
+    @band = Band.new(band_params)
+    user = current_user
+    @band.user = user
+
+    if @band.save
+      flash[:notice] = "Band has been registered!"
+      redirect_to band_path(@band)
+    else
+      flash[:alert] = "Could not create band"
+      render :new
+    end
   end
 
   def update
@@ -29,7 +44,7 @@ class BandsController < ApplicationController
 
   private
     def band_params
-      params.require(:band).permit(:id)
+      params.require(:band).permit(:id, :name, :description)
     end
 
     def letter_list

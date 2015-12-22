@@ -3,7 +3,9 @@
 <% else %>
   <ul>
   <% ratings.each do |rating| %>
-    <li> Song <%= rating.song.full_name %> Rated <%= rating.score %> by <%= link_to rating.user.real_name, user_path(rating.user) %></li>
+    <li>
+      Song <%= rating.song.full_name %> rated <%= rating.score %> by <%= link_to rating.user.best_name_possible, user_path(rating.user) %>
+    </li>
   <% end %>
   </ul>
 <% end %>

@@ -1,8 +1,8 @@
 <h1> <%= @band.name %> </h1>
 
-<p> Current band leader: <%= link_to @band_leader.nickname, user_path(@band_leader) %>
+<p> Current band leader: <%= user_link(@band_leader) %>
 
-<p> Descriptions of bands will be enabled later...</p>
+<p> <%= @band.description %> </p>
 
 <h3> Related songs </h3>
 

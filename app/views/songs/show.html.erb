@@ -1,10 +1,22 @@
-<h1> <%= @song.name %> </h1>
+<h1> <%= @song.band.name %> - <%= @song.name %> </h1>
 
-<p> Band: <%= @song.band.name %> </p>
+<p> <b>Description</b>: <%= @song.description %> </p>
 
 <div class="panel-default">
   <div class="panel-heading"> Ratings </div>
   <div class="panel-body">
-    <%= render partial: 'common/list_ratings', locals: {ratings: @song.ratings} %>
+    <ul>
+    <% @song.ratings.each do |rating| %>
+      <li> Rating: <%= rating.score %> <br/>
+        Comment:
+        <blockquote>
+          <%= rating.comment %>
+        </blockquote>
+        <div>
+          by <%= link_to rating.user.best_name_possible, user_path(rating.user) %>
+        </div>
+      </li>
+    <% end %>
+    </ul>
   </div>
 </div>

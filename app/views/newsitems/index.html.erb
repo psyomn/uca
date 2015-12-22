@@ -1,0 +1,19 @@
+<h1> Latest news </h1>
+
+<% if @newsitems && !@newsitems.empty? %>
+  <% @newsitems.each do |item| %>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <b> <%= item.title %></b>
+      </div>
+      <div class="panel-body">
+        <div>
+          <small class="text-muted"> Post date: <%= item.created_at %> | by: <%= user_link(item.user) %></small>
+        </div>
+        <%= item.body %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p> No news to list </p>
+<% end %>

@@ -7,7 +7,7 @@ gem 'rails', '4.2.5'
 
 gem 'sqlite3'
 gem 'devise'
-gem 'cancancan'
+gem 'cancancan', '~> 1.10'
 
 gem 'sass-rails',   '~> 5.0'
 gem 'coffee-rails', '~> 4.1.0'

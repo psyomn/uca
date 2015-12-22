@@ -28,9 +28,14 @@ when "development"
   band = Band.where(name: "ULTRAVIOLENT").first_or_create
   ultraviolent.bands << band
 
-  song1 = Song.where(name: "The color of your eyes").first_or_create
-  song2 = Song.where(name: "I love you").first_or_create
-  song3 = Song.where(name: "Yet another love song").first_or_create
+  song1 = Song.where(name: "The color of your eyes", 
+                     description: 'We wrote this when we were mesmerized by your eyes').first_or_create
+
+  song2 = Song.where(name: "I love you",
+                     description: 'We wrote this when we fell in love with you').first_or_create
+
+  song3 = Song.where(name: "Yet another love song",
+                    description: 'We wrote yet another love song because of things.').first_or_create
 
   [song1, song2, song3].each do |song|
     ultraviolent.songs << song

@@ -1,0 +1,7 @@
+<%= form_for(newsitem) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class:'form-control' %>
+  <%= f.label :body %>
+  <%= f.text_area :body, class: 'form-control', size: '50x10' %> <br/>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

@@ -1,5 +1,6 @@
 class BandsController < ApplicationController
   before_filter :letter_list, only: [:letter, :show, :index]
+
   def index
     @bands = Band.all
   end

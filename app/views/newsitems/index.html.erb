@@ -8,7 +8,14 @@
       </div>
       <div class="panel-body">
         <div>
-          <small class="text-muted"> Post date: <%= item.created_at %> | by: <%= user_link(item.user) %></small>
+          <small class="text-muted"> Post date: <%= item.created_at %> | by: <%= user_link(item.user) %>
+          <% if can? :update, item %>
+            | <%= link_to 'edit', edit_newsitem_path(item) %>
+          <% end %>
+          <% if can? :destroy, item %>
+            | <%= link_to 'destroy', '#' %>
+          <% end %>
+          </small>
         </div>
         <%= item.body %>
       </div>

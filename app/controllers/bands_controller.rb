@@ -1,4 +1,5 @@
 class BandsController < ApplicationController
+  load_and_authorize_resource
   before_filter :letter_list, only: [:letter, :show, :index]
 
   def index

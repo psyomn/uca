@@ -10,11 +10,11 @@ class NewsitemsController < ApplicationController
   end
 
   def show
-    @newsitem = Newsitem.find(params.permit(:id)[:id])
+    @newsitem = Newsitem.find(params[:id])
   end
 
   def edit
-    @newsitem = Newsitem.find(newsitem_params[:id])
+    @newsitem = Newsitem.find(params[:id])
   end
 
   def create
@@ -33,10 +33,17 @@ class NewsitemsController < ApplicationController
   end
 
   def update
+    @newsitem = Newsitem.find(params[:id])
+    if @newsitem.update(newsitem_params)
+      flash[:notice] = "Update successful"
+      redirect_to newsitem_path(@newsitem)
+    else
+      redirect_to edit_newsitem_path
+    end
   end
 
   private
     def newsitem_params
-      params.require(:newsitem).permit(:id, :title, :body)
+      params.require(:newsitem).permit(:title, :body)
     end
 end

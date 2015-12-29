@@ -1,5 +1,6 @@
 class Newsitem < ActiveRecord::Base
-  # attr_accessible :body, :title
+  default_scope { order('created_at DESC') }
+
   belongs_to :user
 
   validates :user_id, presence: true

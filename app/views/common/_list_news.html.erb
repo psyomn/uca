@@ -3,7 +3,7 @@
 <% else %>
   <ul>
   <% @newsitems.each do |item| %>
-    <li> <%= link_to item.title, newsitem_path(item) %> - <%= item.created_at %> </li>
+    <li> <%= link_to item.title, newsitem_path(item) %> - <%= time_ago_in_words item.created_at %> </li>
   <% end %>
   </ul>
 <% end %>

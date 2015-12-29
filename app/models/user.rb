@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   has_many :songs
   has_many :bands
   has_many :ratings
-  belongs_to :role
 
   # Nicknames should be at least unique
   validates :nickname, uniqueness: true
@@ -21,19 +20,9 @@ class User < ActiveRecord::Base
     nickname || real_name || "user_#{id}"
   end
 
-  def has_role?(role)
-    role == role
+  def has_role?(check_role)
+    self.role.to_sym == check_role
   end
 
   private
-    def user_params
-      params.require(:user)
-        .permit(:name, :email, :password,
-           :password_confirmation, :role,
-           :nickname, :real_name, :id)
-    end
-
-  # Setup accessible (or protected) attributes for your model
-  # attr_accessible :email, :password, :password_confirmation, :remember_me, :bio
-  # attr_accessible :title, :body
 end

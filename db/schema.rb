@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151227103517) do
+ActiveRecord::Schema.define(version: 20151227124459) do
 
   create_table "bands", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20151227103517) do
   end
 
   add_index "newsitems", ["user_id"], name: "index_newsitems_on_user_id"
+
+  create_table "offenses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "offense_type"
+    t.text     "message"
+    t.string   "attempted_resource"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "score"

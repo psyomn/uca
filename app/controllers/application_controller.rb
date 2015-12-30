@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     Offense.create(
-      user_id: current_user.id,
+      user_id: current_user.try(:id),
       offense_type: Offense::AuthOnResource,
       attempted_resource: "#{exception.action} #{exception.subject}",
       message: exception.message)

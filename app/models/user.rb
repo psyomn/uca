@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def has_role?(check_role)
+    return false if !self.role
     self.role.to_sym == check_role
   end
 

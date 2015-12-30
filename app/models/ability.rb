@@ -9,8 +9,20 @@ class Ability
       can :manage, :all
     elsif user.has_role?(:moderator)
       can :manage, Newsitem
+      can :manage, Band
+      can :manage, Song
+      can :manage, User
+      can :read, :all
+    elsif id = user.id
+      # User exists
+      can :manage, Song, user_id: id
+      can :manage, Band, user_id: id
+      can :manage, User, id: id
       can :read, :all
     else
+      # guests
+      # Should be able to view names of bands, songs
+      # Maybe disallow downloads of songs
       can :read, :all
     end
 

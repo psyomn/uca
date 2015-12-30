@@ -1,14 +1,21 @@
-* As a user I want to register a band name
 * As a user I want to create and upload a song
 * As a user I want to rate a song
-* As a user I want to access RSS feeds on resources
-  * As a user I want to access RSS feeds on songs
-  * As a user I want to access RSS feeds on ratings
-  * As a user I want to access RSS feeds on newsitems
-
 * As an admin I want to manage users
 * As an admin I want to manage songs
 * As an admin I want to see some trivial information about the system stats
   for example number of users, number of songs, number of ratings
 
 * As an admin I want to generate backups easily
+
+* As a user, I want to take part in competitions, so that I can test my skills
+  against others
+
+DONE
+* As a user I want to register a band name
+
+NICE TO HAVE
+* As a user I want to access RSS feeds on resources
+  * As a user I want to access RSS feeds on songs
+  * As a user I want to access RSS feeds on ratings
+  * As a user I want to access RSS feeds on newsitems
+

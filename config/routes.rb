@@ -5,6 +5,8 @@ Uca::Application.routes.draw do
   delete "songs/destroy" => 'songs#destroy'
 
   devise_for :users
+  get 'users/edit/info/:id' => 'users#edit_info', as: :edit_user_info
+  patch 'users/update/info/:id' => 'users#update_info', as: :update_user_info
   get 'users/:id' => 'users#show', as: :user
 
   resources :bands

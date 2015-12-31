@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params.permit(:id)[:id])
+    @bands = @user.bands
   rescue ActiveRecord::RecordNotFound
     flash[:error] = "No such user"
     redirect_to root_path

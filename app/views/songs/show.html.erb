@@ -5,8 +5,11 @@
 <div class="panel-default">
   <div class="panel-heading"> Ratings </div>
   <div class="panel-body">
+    <% if @ratings.empty? %>
+      <p class="text-muted"> No ratings found </p>
+    <% end %>
     <ul>
-    <% @song.ratings.each do |rating| %>
+    <% @ratings.each do |rating| %>
       <li> Rating: <%= rating.score %> <br/>
         Comment:
         <blockquote>

@@ -6,23 +6,43 @@
   <% if nick = @user.nickname %>
     <h1> <%= nick %>
     <% if rn = @user.real_name %>
-      <small>(<%= rn %>)</small></h1>
+      <small>(<%= rn %>)</small>
     <% end %>
+    <% if can? :edit, @user %>
+      <%= link_to "Edit", edit_user_info_path(@user), class: 'btn btn-primary' %>
+    <% end %>
+    </h1>
   <% else %>
-    <h1> <%= @user.best_name_possible %></h1>
+    <h1> <%= @user.best_name_possible %>
+    <% if can? :edit, @user %>
+      <%= link_to "Edit", edit_user_info_path(@user), class: 'btn btn-primary' %>
+    <% end %>
+    </h1>
   <% end %>
 </div>
 
 <div class="content">
+  <div>
+  </div>
 
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
       <div class="panel-default">
         <div class="panel-heading">
           <strong> Bio </strong>
         </div>
         <div class="panel-body">
           <p> <%= bio_or_none @user.bio %> </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel-default">
+        <div class="panel-heading">
+          <strong> Leader of Bands </strong>
+        </div>
+        <div class="panel-body">
+          <%= render partial: 'common/list_bands', locals: {bands: @bands} %>
         </div>
       </div>
     </div>
@@ -55,9 +75,4 @@
   </div>
 
 </div>
-
-<% if can? :edit, @user %>
-  <%= link_to "Edit", edit_user_info_path(@user), class: 'btn btn-primary' %>
-<% end %>
-
 <% end %>

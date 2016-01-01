@@ -12,12 +12,14 @@ class Ability
       can :manage, Band
       can :manage, Song
       can :manage, User
+      can :manage, Rating
       can :read, :all
     elsif id = user.id
       # User exists
       can :manage, Song, user_id: id
       can :manage, Band, user_id: id
       can :manage, User, id: id
+      can :manage, Rating, user_id: id
       can :read, :all
     else
       # guests

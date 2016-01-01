@@ -1,6 +1,8 @@
-<h1> <%= @song.band.name %> - <%= @song.name %> </h1>
+<h1> <%= @song.name %> </h1>
 
+<p> <b>Band</b>: <%= link_to @band.name, band_path(@band) %> </p>
 <p> <b>Description</b>: <%= @song.description %> </p>
+<p> <b>Downloads</b>: <code>TODO</code> </p>
 
 <div class="panel-default">
   <div class="panel-heading"> Ratings </div>
@@ -8,18 +10,20 @@
     <% if @ratings.empty? %>
       <p class="text-muted"> No ratings found </p>
     <% end %>
-    <ul>
     <% @ratings.each do |rating| %>
-      <li> Rating: <%= rating.score %> <br/>
-        Comment:
+      <div>
+        <% usr = rating.user %>
+        <%= link_to usr.best_name_possible, user_path(usr) %> rates <%= rating.score %>/<%= Rating::Max %>:
         <blockquote>
           <%= rating.comment %>
+          <% if can? :manage, rating %>
+            <br/>
+            <%= link_to 'Edit Rating', '#', class: 'btn btn-primary' %>
+          <% end %>
         </blockquote>
         <div>
-          by <%= link_to rating.user.best_name_possible, user_path(rating.user) %>
         </div>
-      </li>
+      </div>
     <% end %>
-    </ul>
   </div>
 </div>

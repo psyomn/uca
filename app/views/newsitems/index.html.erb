@@ -1,5 +1,12 @@
 <h1> Latest news </h1>
 
+<% if can? :manage, Newsitem %>
+  <div>
+    <%= link_to "Make new Post", new_newsitem_path, class: 'btn btn-primary' %>
+  </div>
+  <br/>
+<% end %>
+
 <% if @newsitems && !@newsitems.empty? %>
   <% @newsitems.each do |item| %>
     <div class="panel panel-info">
@@ -14,6 +21,9 @@
           <% end %>
           <% if can? :destroy, item %>
             | <%= link_to 'destroy', '#' %>
+          <% end %>
+          <% if can? :show, item %>
+            | <%= link_to 'view', newsitem_path(item) %>
           <% end %>
           </small>
         </div>

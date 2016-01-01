@@ -10,6 +10,7 @@ class SongsController < ApplicationController
   def show
     @song = Song.find(params[:id])
     @ratings = @song.ratings
+    @band = @song.band
   end
 
   def destroy

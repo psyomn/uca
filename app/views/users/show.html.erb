@@ -42,6 +42,15 @@
           <strong> Leader of Bands </strong>
         </div>
         <div class="panel-body">
+          <% if @user == current_user %>
+            <% count = @user.band_registrations_left_this_year %>
+            <p class="text-muted">
+              You are allowed to create another <%= count %> <%= "band".pluralize(count) %> this year.
+              <% if count < User::MaxBandsAllowed %>
+                Create <%= link_to "new", new_band_path %> band.
+              <% end %>
+            </p>
+          <% end %>
           <%= render partial: 'common/list_bands', locals: {bands: @bands} %>
         </div>
       </div>

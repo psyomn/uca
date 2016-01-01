@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   ROLES = %i[admin moderator]
+  MaxBandsAllowed = 10
+
   has_many :songs
   has_many :bands
   has_many :ratings
@@ -23,6 +25,17 @@ class User < ActiveRecord::Base
   def has_role?(check_role)
     return false if !self.role
     self.role.to_sym == check_role
+  end
+
+  # You can create 10 new bands per year
+  def band_registrations_left_in_year(year)
+    MaxBandsAllowed - self.bands
+                          .select { |el| el.created_at.year == year }
+                          .count
+  end
+
+  def band_registrations_left_this_year
+    band_registrations_left_in_year(Time.now.year)
   end
 
   private

@@ -1,6 +1,7 @@
 class BandsController < ApplicationController
   load_and_authorize_resource
   before_filter :letter_list, only: [:letter, :show, :index]
+  around_filter :check_max_bands, only: [:new, :create]
 
   def index
     @bands = Band.all
@@ -55,5 +56,14 @@ class BandsController < ApplicationController
                    .where("name LIKE ?", "#{params[:letter]}%")
       @letters = ((?a..?z).to_a +
         @bands.collect { |el| el.name[0].downcase }).uniq
+    end
+
+    def check_max_bands
+      if current_user.band_registrations_left_this_year > 0
+        yield
+      else
+        flash[:alert] = "You've created the max amount of bands this year"
+        redirect_to user_path(current_user)
+      end
     end
 end

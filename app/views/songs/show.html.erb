@@ -1,8 +1,6 @@
 <h1> <%= @song.name %> </h1>
 
-<p> <b>Band</b>: <%= link_to @band.name, band_path(@band) %> </p>
-<p> <b>Description</b>: <%= @song.description %> </p>
-<p> <b>Downloads</b>: <code>TODO</code> </p>
+<%= render partial: 'songs/info', locals: {band: @band, song: @song} %>
 
 <div class="panel-default">
   <div class="panel-heading"> Ratings </div>
@@ -18,7 +16,7 @@
           <%= rating.comment %>
           <% if can? :manage, rating %>
             <br/>
-            <%= link_to 'Edit Rating', '#', class: 'btn btn-primary' %>
+            <%= link_to 'Edit Rating', edit_rating_path(rating), class: 'btn btn-primary' %>
           <% end %>
         </blockquote>
         <div>

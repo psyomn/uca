@@ -1,0 +1,14 @@
+<h1> Edit Rating </h1>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <p> Currently editing rating for song: </p>
+  </div>
+  <div class="panel-body">
+    <%= render partial: 'songs/info', locals: {song: @song, band: @song.band} %>
+  </div>
+</div>
+
+<h1> You rating </h1>
+
+<%= render partial: 'ratings/form', locals: {rating: @rating}  %>

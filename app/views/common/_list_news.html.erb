@@ -2,6 +2,14 @@
   <p> No news items </p>
 <% else %>
   <ul>
+
+  <% first = @first_newsitem%>
+  <li> <%= link_to first.title, newsitem_path(first) %> - <%= time_ago_in_words first.created_at %>:<br/>
+    <small>
+    <%= simple_format(first.body) %>
+    </small>
+  </li>
+
   <% @newsitems.each do |item| %>
     <li> <%= link_to item.title, newsitem_path(item) %> - <%= time_ago_in_words item.created_at %> </li>
   <% end %>

@@ -21,6 +21,8 @@ gem 'turbolinks'
 gem 'jquery-rails'
 gem 'sdoc'
 
+gem 'gravtastic', '~> 3.2.6'
+
 group :development, :test do
   gem 'byebug'
 end

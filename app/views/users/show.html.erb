@@ -4,18 +4,18 @@
 
 <div>
   <% if nick = @user.nickname %>
-    <h1> <%= nick %>
+    <h1> <%= image_tag @user.gravatar_url, class: 'img-rounded' %> <%= nick %>
     <% if rn = @user.real_name %>
       <small>(<%= rn %>)</small>
     <% end %>
     <% if can? :edit, @user %>
-      <%= link_to "Edit", edit_user_info_path(@user), class: 'btn btn-primary' %>
+      <%= link_to "Edit Profile", edit_user_info_path(@user), class: 'btn btn-primary' %>
     <% end %>
     </h1>
   <% else %>
     <h1> <%= @user.best_name_possible %>
     <% if can? :edit, @user %>
-      <%= link_to "Edit", edit_user_info_path(@user), class: 'btn btn-primary' %>
+      <%= link_to "Edit Profile", edit_user_info_path(@user), class: 'btn btn-primary' %>
     <% end %>
     </h1>
   <% end %>

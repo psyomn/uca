@@ -1,14 +1,30 @@
-<div class="panel-default">
-  <div class="panel-heading"> <b> News </b> <small> [<%= link_to 'list', newsitems_path %>] </small> </div>
-  <div class="panel-body">
-    <%= render 'common/list_news' %>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"> <b> News </b> <small> [<%= link_to 'list', newsitems_path %>] </small> </div>
+      <div class="panel-body">
+        <%= render 'common/list_news' %>
+      </div>
+    </div>
   </div>
+
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <b> Contests </b>
+      </div>
+      <div class="panel-body">
+        <code>Coming Soon!</code>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="row">
 
   <div class="col-sm-6">
-    <div class="panel-default">
+    <div class="panel panel-default">
       <div class="panel-heading"> <b> Newest Songs </b> </div>
       <div class="panel-body">
         <%= render partial: 'common/list_songs', locals: {songs: @songs} %>
@@ -17,7 +33,7 @@
   </div>
 
   <div class="col-sm-6">
-    <div class="panel-default">
+    <div class="panel panel-default">
       <div class="panel-heading"> <b> Newest Ratings </b> </div>
       <div class="panel-body">
         <%= render partial: 'common/list_ratings', locals: {ratings: @ratings} %>

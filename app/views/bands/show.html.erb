@@ -1,6 +1,8 @@
+<%= render partial: 'bands/letters', locals: {letters: @letters} %>
+
 <h1> <%= @band.name %> </h1>
 
-<p> Current band leader: <%= user_link(@band_leader) %>
+<small class='text-muted'> Current band leader: <%= user_link(@band_leader) %> </small>
 
 <p> <%= @band.description %> </p>
 

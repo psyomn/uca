@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+  gravtastic
+
   ROLES = %i[admin moderator]
   MaxBandsAllowed = 10
 

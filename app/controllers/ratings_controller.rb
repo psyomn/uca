@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
   def new
+    # Make sure that one user can only create one rating for a specific song.
     @rating = Rating.new
   end
 

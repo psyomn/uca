@@ -11,21 +11,28 @@ class RatingsController < ApplicationController
   end
 
   def edit
-    @rating = Rating.find(params.permit(:id)[:id])
+    @rating = Rating.find(params[:id])
     @song = @rating.song
+    @band = @song.band
   end
 
   def update
-    @rating = Rating.find(params.permit(:id)[:id])
+    @rating = Rating.find(params[:id])
     if @rating.update(rating_params)
       redirect_to song_path(@rating.song)
     else
       flash[:alert] = "Problem updating rating."
-      redirect_to edit_rating_path(@rating)
+      @song = @rating.song
+      @band = @song.band
+      render :edit
     end
   end
 
   def destroy
+    @rating = Rating.find(params[:id])
+    @song = @rating.song
+    @rating.destroy
+    redirect_to @song
   end
 
   private

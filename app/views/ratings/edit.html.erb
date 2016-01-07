@@ -5,10 +5,10 @@
     <p> Currently editing rating for song: </p>
   </div>
   <div class="panel-body">
-    <%= render partial: 'songs/info', locals: {song: @song, band: @song.band} %>
+    <%= render partial: 'songs/info', locals: {song: @song, band: @band} %>
   </div>
 </div>
 
-<h1> You rating </h1>
+<h1> Your rating </h1>
 
 <%= render partial: 'ratings/form', locals: {rating: @rating}  %>

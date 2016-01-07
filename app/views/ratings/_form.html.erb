@@ -1,3 +1,18 @@
+<% if rating.errors.any? %>
+<div class="panel panel-error">
+  <div class="panel-heading">Please fix the below</div>
+  <div class="panel-body">
+    <ul>
+    <% rating.errors.each do |k,v| %>
+      <li> <b><%= k %></b>: <%= v %> </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+<% else %>
+  <div> no errors </div>
+<% end %>
+
 <%= form_for(rating) do |f| %>
   <%= f.label :score %> <br/>
   <%= f.number_field :score %> <br/>

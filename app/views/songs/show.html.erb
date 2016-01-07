@@ -16,7 +16,8 @@
           <%= rating.comment %>
           <% if can? :manage, rating %>
             <br/>
-            <%= link_to 'Edit Rating', edit_rating_path(rating), class: 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_rating_path(rating), class: 'btn btn-primary' %>
+            <%= link_to 'Delete', rating, method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure you want to delete your rating?'} %>
           <% end %>
         </blockquote>
         <div>

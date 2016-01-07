@@ -32,7 +32,7 @@ class BandsController < ApplicationController
 
     if @band.save
       flash[:notice] = "Band has been registered!"
-      redirect_to band_path(@band)
+      redirect_to @band
     else
       flash[:alert] = "Could not create band"
       render :new

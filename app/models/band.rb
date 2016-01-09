@@ -1,5 +1,5 @@
 class Band < ActiveRecord::Base
-  has_many :songs
+  has_many :songs, dependent: :destroy
   belongs_to :user
   # attr_accessible :name
 

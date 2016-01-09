@@ -10,3 +10,7 @@
 
 <%= render partial: 'common/list_songs', locals: {songs: @band.songs} %>
 
+<% if can? :manage, @band %>
+  <%= link_to 'Edit', edit_band_path(@band), class: 'btn btn-primary' %>
+  <%= link_to 'Delete', band_path(@band),  data: { confirm: 'Are you sure'}, class: 'btn btn-primary', method: :delete %>
+<% end %>

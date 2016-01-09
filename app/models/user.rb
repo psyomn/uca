@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   ROLES = %i[admin moderator]
   MaxBandsAllowed = 10
 
-  has_many :songs
-  has_many :bands
-  has_many :ratings
+  has_many :songs, dependent: :destroy
+  has_many :bands, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   # Nicknames should be at least unique
   validates :nickname, uniqueness: true

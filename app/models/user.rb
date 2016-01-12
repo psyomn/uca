@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :ratings, dependent: :destroy
 
   # Nicknames should be at least unique
-  validates :nickname, uniqueness: true
+  validates :nickname, uniqueness: true, allow_nil: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

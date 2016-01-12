@@ -19,8 +19,16 @@ class UsersController < ApplicationController
       flash[:notice] = 'Update successful'
       redirect_to user_path(@user)
     else
-      redirect_to edit_user_info_path
+      render :edit_info
     end
+  end
+
+  # Ajax
+  # /user/name/taken/:nickname
+  def check_username_taken
+    p params[:nickname]
+    @user = User.where(nickname: params[:nickname]).select(:id)
+    render json: {taken: !@user.empty? }
   end
 
   private

@@ -8,6 +8,7 @@ Uca::Application.routes.draw do
   get 'users/edit/info/:id' => 'users#edit_info', as: :edit_user_info
   patch 'users/update/info/:id' => 'users#update_info', as: :update_user_info
   get 'users/:id' => 'users#show', as: :user
+  post 'user/name/taken/:nickname' => 'users#check_username_taken', as: :check_username_taken
 
   resources :bands
   get 'bands/letter/:letter' => 'bands#letter', as: :band_letter

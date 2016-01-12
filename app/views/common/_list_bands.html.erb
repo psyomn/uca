@@ -1,4 +1,8 @@
 <ul>
+<% if bands.empty? %>
+  <li> No bands with that letter. </li>
+<% end %>
+
 <% bands.each do |band| %>
   <li> <%= link_to band.name, band_path(band) %> </li>
 <% end %>

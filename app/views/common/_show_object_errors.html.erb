@@ -1,0 +1,15 @@
+<% if !obj.errors.messages.empty? %>
+  Errors:
+  <ul>
+  <% obj.errors.messages.each do |err,mess| %>
+    <li>
+      <%= err %>:
+      <ul>
+        <% mess.each do |m| %>
+        <li class="text-danger"> <%= m %> </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

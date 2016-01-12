@@ -3,21 +3,7 @@
 <p> Register a band name, under your username! </p>
 
 <%= form_for @band do |f| %>
-  <% if @band.errors %>
-    <p> Errors: </p>
-    <ul>
-    <% @band.errors.messages.each do |err,mess| %>
-      <li>
-        <%= err %>:
-        <ul>
-          <% mess.each do |m| %>
-          <li> <%= m %> </li>
-          <% end %>
-        </ul>
-      </li>
-    <% end %>
-    </ul>
-  <% end %>
+  <%= render partial: 'common/show_object_errors', locals: {obj: @band } %>
   <%= f.label :name, 'Band Name' %> <br/>
   <%= f.text_field :name, class: 'form-control' %> <br/>
   <%= f.label :description %>

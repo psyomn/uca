@@ -3,7 +3,10 @@ class Rating < ActiveRecord::Base
   belongs_to :song
   Max = 5
 
-  validates :score, inclusion: 1..5
+  validates :score, inclusion: {
+    in: 1..5,
+    message: "enter a rating between 1 to #{Max}" }
+
   validates :user_id, presence: true
   validates :song_id, presence: true
 

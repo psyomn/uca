@@ -12,7 +12,9 @@
   <h1> User Composition Archive </h1>
 
   <nav class="navbar navbar-default navbar-static-top">
-    <ul class="nav nav-tabs">
+    <div class="container">
+    <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
       <li><%= link_to "Home", root_path, role: "presentation", class: "navbar-link" %></li>
       <li><%= link_to "Bands", bands_path, role: "presentation", class: "navbar-link" %> </li>
       <li><%= link_to "About", about_path, role: "presentation", class: "navbar-link" %></li>
@@ -26,6 +28,8 @@
       <% end %>
       </p>
     </ul>
+    </div>
+    </div>
   </nav>
 
   <% if n = flash[:notice] %>

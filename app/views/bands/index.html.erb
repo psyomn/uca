@@ -1,3 +1,9 @@
-<p> Choose band by letter! </p>
+<h1> Latest Band Stats </h1>
+
+<p> <b> Check the 10 newest bands </b></p>
+
+<%= render partial: 'common/list_bands', locals: {bands: @bands} %>
+
+<p> <b> Or choose band by letter! </b> </p>
 
 <%= render partial: 'letters', locals: {letters: @letters} %>

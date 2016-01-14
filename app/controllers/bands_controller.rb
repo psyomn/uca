@@ -4,7 +4,7 @@ class BandsController < ApplicationController
   around_filter :check_max_bands, only: [:new, :create]
 
   def index
-    @bands = Band.all
+    @bands = Band.last(10)
   end
 
   def letter
@@ -56,8 +56,13 @@ class BandsController < ApplicationController
 
     def letter_list
       # TODO this might need optimization
-      @bands = Band.select(:id, :name)
-                   .where("name LIKE ?", "#{params[:letter]}%")
+      if params[:letter].blank?
+        @bands = []
+      else
+        @bands = Band.select(:id, :name)
+                     .where("name LIKE ?", "#{params[:letter]}%")
+      end
+
       @letters = ((?a..?z).to_a +
         @bands.collect { |el| el.name[0].downcase }).uniq
     end

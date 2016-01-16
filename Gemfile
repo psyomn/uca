@@ -32,6 +32,7 @@ group :development do
   gem 'thin'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rubocop', '~> 0.36.0'
 end
 
 group :test do

@@ -15,4 +15,20 @@ class SongsController < ApplicationController
 
   def destroy
   end
+
+  def update
+    raise NotImplementedError
+  end
+
+  def edit
+    raise NotImplementedError
+  end
+
+  def new
+    raise NotImplementedError
+  end
+
+  def create
+    raise NotImplementedError
+  end
 end

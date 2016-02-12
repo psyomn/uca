@@ -117,6 +117,7 @@ GEM
     orm_adapter (0.5.0)
     parser (2.3.0.1)
       ast (~> 2.2)
+    pg (0.18.4)
     power_assert (0.2.6)
     powerpack (0.1.1)
     pry (0.10.3)
@@ -202,7 +203,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.11)
     test-unit (3.1.5)
       power_assert
     test-unit-activesupport (1.0.4)
@@ -264,6 +264,7 @@ DEPENDENCIES
   devise
   gravtastic (~> 3.2.6)
   jquery-rails
+  pg
   pry-rails
   rails (= 4.2.5)
   rspec-rails
@@ -271,7 +272,6 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc
   spring
-  sqlite3
   test-unit-rails
   therubyracer
   thin

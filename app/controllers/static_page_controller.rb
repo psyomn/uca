@@ -5,7 +5,7 @@ class StaticPageController < ApplicationController
     @songs = Song.order('created_at desc').last(10)
     @ratings = Rating.last(10)
     @newsitems = Newsitem.select(:id, :title, :created_at).last(10).to_a
-    @first_newsitem = Newsitem.find(@newsitems.shift.id)
+    @first_newsitem = Newsitem.find(@newsitems.shift.id) if @newsitems.shift
   end
 
   def about

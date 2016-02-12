@@ -1,9 +1,5 @@
 Uca::Application.routes.draw do
 
-  get "songs/" => 'songs#index'
-  get "songs/:id" => 'songs#show', as: :song
-  delete "songs/destroy" => 'songs#destroy'
-
   devise_for :users
   get 'users/edit/info/:id' => 'users#edit_info', as: :edit_user_info
   patch 'users/update/info/:id' => 'users#update_info', as: :update_user_info
@@ -16,6 +12,8 @@ Uca::Application.routes.draw do
   resources :newsitems
 
   resources :ratings
+
+  resources :songs
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

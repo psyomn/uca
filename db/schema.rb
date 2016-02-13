@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151227124459) do
+ActiveRecord::Schema.define(version: 20160213212947) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "bands", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -21,7 +24,8 @@ ActiveRecord::Schema.define(version: 20151227124459) do
     t.text     "description"
   end
 
-  add_index "bands", ["name"], name: "index_bands_on_name"
+  add_index "bands", ["name"], name: "index_bands_on_name", using: :btree
+  add_index "bands", ["user_id"], name: "index_bands_on_user_id", using: :btree
 
   create_table "newsitems", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -31,7 +35,7 @@ ActiveRecord::Schema.define(version: 20151227124459) do
     t.integer  "user_id"
   end
 
-  add_index "newsitems", ["user_id"], name: "index_newsitems_on_user_id"
+  add_index "newsitems", ["user_id"], name: "index_newsitems_on_user_id", using: :btree
 
   create_table "offenses", force: :cascade do |t|
     t.integer  "user_id"
@@ -42,6 +46,8 @@ ActiveRecord::Schema.define(version: 20151227124459) do
     t.datetime "updated_at",         null: false
   end
 
+  add_index "offenses", ["user_id"], name: "index_offenses_on_user_id", using: :btree
+
   create_table "ratings", force: :cascade do |t|
     t.integer  "score"
     t.datetime "created_at", null: false
@@ -51,6 +57,9 @@ ActiveRecord::Schema.define(version: 20151227124459) do
     t.text     "comment"
   end
 
+  add_index "ratings", ["song_id"], name: "index_ratings_on_song_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
+
   create_table "songs", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.datetime "created_at",              null: false
@@ -59,6 +68,9 @@ ActiveRecord::Schema.define(version: 20151227124459) do
     t.integer  "band_id"
     t.text     "description"
   end
+
+  add_index "songs", ["band_id"], name: "index_songs_on_band_id", using: :btree
+  add_index "songs", ["user_id"], name: "index_songs_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -79,7 +91,7 @@ ActiveRecord::Schema.define(version: 20151227124459) do
     t.string   "role"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

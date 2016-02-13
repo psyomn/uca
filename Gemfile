@@ -33,6 +33,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rubocop', '~> 0.36.0'
+  gem 'rails_best_practices'
 end
 
 group :test do

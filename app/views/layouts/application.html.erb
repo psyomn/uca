@@ -33,17 +33,11 @@
   </nav>
 
   <% if n = flash[:notice] %>
-    <div id="notice" class="panel panel-info">
-      <div class="panel-heading"> Notice </div>
-      <div class="panel-body"><%= n %></div>
-    </div>
+    <div id="notice" class="alert alert-success"> <strong>Success:</strong> <%= n %> </div>
   <% end %>
 
   <% if a = flash[:alert] %>
-    <div class="panel panel-danger">
-      <div class="panel-heading"> Alert </div>
-      <div class="panel-body"> <%= a %> </div>
-    </div>
+    <div id="notice" class="alert alert-danger"> <strong>Alert:</strong><%= a %> </div>
   <% end %>
 
   <% flash.clear %>

@@ -3,7 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-heading"> <b> News </b> <small> [<%= link_to 'list', newsitems_path %>] </small> </div>
       <div class="panel-body">
-        <%= render 'common/list_news', locals: {newitems: @newsitems, first_newsitem: @first_newsitem} %>
+        <%= render partial: 'common/list_news', locals: {newsitems: @newsitems, first_newsitem: @first_newsitem} %>
       </div>
     </div>
   </div>

@@ -6,10 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(
-  email: 'admin@localhost',
-  password: 'thesecretpassword',
-  password_confirmation: 'thesecretpassword')
+# Make admin
+unless User.where(email: 'admin@localhost')
+  User.create(
+    email: 'admin@localhost',
+    password: 'thesecretpassword',
+    password_confirmation: 'thesecretpassword',
+    role: 'admin')
+end
 
 case Rails.env
 when "production"

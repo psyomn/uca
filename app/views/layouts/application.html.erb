@@ -22,6 +22,9 @@
       <% if user_signed_in? %>
         <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "navbar-link" %> </li>
         <li> <%= link_to current_user.best_name_possible, user_path(current_user), class: "navbar-link" %> </li>
+        <% if current_user.has_role? :admin %>
+          <li> <%= link_to "Administrate", administration_path %>  </li>
+        <% end %>
       <% else %>
         <li> <%= link_to "Sign Up", new_user_registration_path, class: "navbar-link" %> </li>
         <li> <%= link_to "Login", new_user_session_path, class: "navbar-link" %> </li>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213212947) do
+ActiveRecord::Schema.define(version: 20160215034654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,12 +61,17 @@ ActiveRecord::Schema.define(version: 20160213212947) do
   add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "name",                  limit: 255
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "user_id"
     t.integer  "band_id"
     t.text     "description"
+    t.string   "powertab_file_name"
+    t.string   "powertab_content_type"
+    t.integer  "powertab_file_size"
+    t.datetime "powertab_updated_at"
+    t.string   "status"
   end
 
   add_index "songs", ["band_id"], name: "index_songs_on_band_id", using: :btree

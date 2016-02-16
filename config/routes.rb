@@ -16,7 +16,7 @@ Uca::Application.routes.draw do
   resources :songs
 
   scope 'admin' do
-    get 'index', to: 'administration#index'
+    get 'index', to: 'administration#index', as: :administration
   end
 
   # The priority is based upon order of creation:

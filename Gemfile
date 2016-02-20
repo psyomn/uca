@@ -22,8 +22,8 @@ gem 'jquery-rails'
 gem 'sdoc'
 
 gem 'gravtastic', '~> 3.2.6'
-gem 'paperclip', '~> 4.3.5'
 gem 'state_machine'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug'

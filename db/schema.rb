@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216051820) do
+ActiveRecord::Schema.define(version: 20160216053416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,14 @@ ActiveRecord::Schema.define(version: 20160216051820) do
   end
 
   add_index "submission_comments", ["user_id"], name: "index_submission_comments_on_user_id", using: :btree
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "user_id"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

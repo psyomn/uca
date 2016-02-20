@@ -13,6 +13,8 @@ class Ability
       can :manage, Song
       can :manage, User
       can :manage, Rating
+      can :manage, Submission
+      can :manage, SubmissionComment
       can :read, :all
     elsif id = user.id
       # User exists
@@ -20,6 +22,7 @@ class Ability
       can :manage, Band, user_id: id
       can :manage, User, id: id
       can :manage, Rating, user_id: id
+      can :manage, Submission, user_id: id
       can :read, :all
     else
       # guests

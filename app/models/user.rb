@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :songs, dependent: :destroy
   has_many :bands, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :submissions, dependent: :destroy
 
   # Nicknames should be at least unique
   validates :nickname, uniqueness: true, presence: true

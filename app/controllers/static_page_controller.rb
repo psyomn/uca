@@ -1,6 +1,7 @@
 # Anything static goes here
 # @author psyomn
 class StaticPageController < ApplicationController
+  skip_before_action :authenticate_user!
   def home
     @songs = Song.order('created_at desc').last(10)
     @ratings = Rating.last(10)

@@ -1,0 +1,25 @@
+<h1> Make a new Song Submission </h1>
+
+<div>
+  <%= render partial: 'common/show_object_errors', locals: {obj: @submission} %>
+</div>
+
+<%= form_for(@submission) do |f| %>
+  <div class="form-group">
+    <%= f.label :comment, "Submission Comments (anything that will help submission reviews)" %>
+    <%= f.text_area :comment, class: 'form-control' %>
+  </div>
+
+  <%= f.fields_for :song, @song do |ff| %>
+    <div class="form-group">
+      <%= ff.label :name, "Song Name" %>
+      <%= ff.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= ff.label :powertab, "Powertab Upload" %>
+      <%= ff.file_field :powertab %>
+    </div>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

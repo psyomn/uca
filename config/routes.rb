@@ -15,6 +15,8 @@ Uca::Application.routes.draw do
 
   resources :songs
 
+  resources :submissions
+
   scope 'admin' do
     get 'index', to: 'administration#index', as: :administration
   end

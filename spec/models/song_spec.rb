@@ -34,7 +34,7 @@ RSpec.describe Song, :type => :model do
     song = Song.new(name: name)
     song.user = @user
     song.band = @band_tt
-    expect{song.save!}.to_not raise_error
+    expect { song.save! }.to_not raise_error
   end
 
   it 'should not allow same band names, and same song name' do
@@ -48,7 +48,7 @@ RSpec.describe Song, :type => :model do
     song = Song.new(name: name)
     song.user = @user
     song.band = @band_uv
-    expect{song.save!}.to raise_error(Errors::IllegalRecord)
+    expect { song.save! }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
 end

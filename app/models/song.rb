@@ -16,6 +16,8 @@ class Song < ActiveRecord::Base
   validates :user_id, presence: true
   validates :band_id, presence: true
 
+  validates :name, uniqueness: { scope: :band_id }
+
   after_initialize :defaults
 
   def full_name

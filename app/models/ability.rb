@@ -23,6 +23,7 @@ class Ability
       can :manage, User, id: id
       can :manage, Rating, user_id: id
       can :manage, Submission, user_id: id
+      can :manage, SubmissionComment, user_id: id
       can :read, :all
     else
       # guests

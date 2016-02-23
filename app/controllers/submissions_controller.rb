@@ -3,11 +3,13 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+    @submission = Submission.find(params[:id])
   end
 
   def new
     @submission = Submission.new
-    @song = Song.new
+    @submission.song = Song.new
+    @bands = current_user.bands
   end
 
   def edit
@@ -15,9 +17,10 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = current_user.submissions.build(submission_params)
+    @submission.song.user = current_user
 
     if @submission.save
-      redirect_to @submission
+      redirect_to submission_path(@submission)
     else
       puts "#" * 14
       p @submission
@@ -38,6 +41,6 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:comment, song_attributes: [:id, :name, :powertab])
+    params.require(:submission).permit(:comment, song_attributes: [:id, :name, :powertab, :band_id])
   end
 end

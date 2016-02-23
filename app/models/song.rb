@@ -6,6 +6,8 @@ class Song < ActiveRecord::Base
   # effort writing a rating on a song?
   has_many :ratings, dependent: :destroy
 
+  mount_uploader :powertab, PowertabUploader
+
   belongs_to :user
   belongs_to :band
   has_one :submission

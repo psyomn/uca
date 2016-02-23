@@ -1,4 +1,6 @@
-<h1> Submission </h1>
+<h1> Submission # <%= @submission.id %> </h1>
 
-<p> Submission info goes here </p>
-
+<p> <b> Submission Comments from Author: </b> <%= @submission.comment %> </p>
+<p> <b> Song name </b>: <%= @submission.song.name %> </p>
+<p> <b> Song description </b>: <%= @submission.song.description %> </p>
+<p> <b> Song file </b>: <%= link_to 'link', @submission.song.powertab.url %> </p>

@@ -9,17 +9,30 @@
     <%= f.label :comment, "Submission Comments (anything that will help submission reviews)" %>
     <%= f.text_area :comment, class: 'form-control' %>
   </div>
-
-  <%= f.fields_for :song, @song do |ff| %>
+  <%= f.fields_for :song do |ff| %>
     <div class="form-group">
       <%= ff.label :name, "Song Name" %>
       <%= ff.text_field :name, class: 'form-control' %>
     </div>
+
+    <div class="form-group">
+      <%= ff.label :description %>
+      <%= ff.text_area :description, class: 'form-control' %>
+    </div>
+
     <div class="form-group">
       <%= ff.label :powertab, "Powertab Upload" %>
       <%= ff.file_field :powertab %>
     </div>
+
+    <div class="form-group">
+      <%= ff.label :band %> <br/>
+      <% opts = options_for_select(@bands.map { |e| [e.name, e.id]}) %>
+      <%= ff.select :band_id, opts %>
+    </div>
+
   <% end %>
+
 
   <%= f.submit %>
 <% end %>

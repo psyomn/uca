@@ -41,6 +41,7 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:comment, song_attributes: [:id, :name, :powertab, :band_id])
+    params.require(:submission).permit(:comment,
+      song_attributes: [:id, :name, :powertab, :band_id, :description])
   end
 end

@@ -21,6 +21,10 @@ Uca::Application.routes.draw do
     get 'index', to: 'administration#index', as: :administration
   end
 
+  namespace :submission_comments do
+    post 'create'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -4,3 +4,11 @@
 <p> <b> Song name </b>: <%= @submission.song.name %> </p>
 <p> <b> Song description </b>: <%= @submission.song.description %> </p>
 <p> <b> Song file </b>: <%= link_to 'link', @submission.song.powertab.url %> </p>
+
+<h1> Give feedback to pending submission </h1>
+<%= form_tag('/submission_comments/create', remote: true) do %>
+  <%= text_area_tag :comment, '', class: 'form-control' %>
+  <%= select_tag 'vote', options_for_select(["good to go", "don't add yet", "no vote"]), class: 'form-control' %>
+  <%= submit_tag 'give feedback', class: 'btn btn-primary' %>
+  <%= hidden_field_tag :submission, @submission %>
+<% end %>
